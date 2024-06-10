@@ -21,6 +21,7 @@ function App() {
         <button
           onClick={() => {
             dispatch(addNumber(inputNum));
+            setInputNum("");
           }}
         >
           더할게요
@@ -28,6 +29,7 @@ function App() {
         <button
           onClick={() => {
             dispatch(subtractNumber(inputNum));
+            setInputNum("");
           }}
         >
           뺄게요
