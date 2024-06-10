@@ -1,7 +1,21 @@
 // Hint: TodoItem 컴포넌트는 props 를 받습니다.
-export default function TodoItem() {
-  return (
+import { useDispatch } from "react-redux";
+import { deleteTodo, toggleTodo } from "../redux/slices/todoSlice";
+
+export default function TodoItem({ todos }) {
+  const dispatch = useDispatch();
+
+  const handleDelete = (id) => {
+    dispatch(deleteTodo(id));
+  };
+
+  const handleToggle = (id) => {
+    dispatch(toggleTodo(id));
+  };
+
+  return todos.map((todo) => (
     <li
+      key={todo.id}
       style={{
         display: "flex",
         flexDirection: "column",
@@ -12,13 +26,15 @@ export default function TodoItem() {
       }}
     >
       <section>
-        <p>제목: 이거슨제목</p>
-        <p>내용: 이거슨내용</p>
+        <p>제목: {todo.title}</p>
+        <p>내용: {todo.content}</p>
       </section>
       <section>
-        <button>완료</button>
-        <button>삭제</button>
+        <button onClick={() => handleToggle(todo.id)}>
+          {todo.isDone ? "취소" : "완료"}
+        </button>
+        <button onClick={() => handleDelete(todo.id)}>삭제</button>
       </section>
     </li>
-  );
+  ));
 }
