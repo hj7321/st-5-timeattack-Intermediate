@@ -1,6 +1,6 @@
 // Hint: TodoItem 컴포넌트는 props 를 받습니다.
 import { useDispatch } from "react-redux";
-import { deleteTodo, toggleTodo } from "../redux/slices/todoSlice";
+import { deleteTodo, toggleTodo } from "../redux/slices/todosSlice";
 
 export default function TodoItem({ todos }) {
   const dispatch = useDispatch();

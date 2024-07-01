@@ -2,7 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  todo: [
+  todos: [
     {
       title: "리액트 공부",
       content: "리액트 심화 강의 듣기",
@@ -24,23 +24,23 @@ const initialState = {
   ],
 };
 
-const todoSlice = createSlice({
+const todosSlice = createSlice({
   name: "todo",
   initialState,
   reducers: {
     addTodo: (state, action) => {
-      state.todo = [...state.todo, action.payload];
+      state.todos = [...state.todos, action.payload];
     },
     toggleTodo: (state, action) => {
-      state.todo = state.todo.map((todo) =>
+      state.todos = state.todos.map((todo) =>
         todo.id === action.payload ? { ...todo, isDone: !todo.isDone } : todo
       );
     },
     deleteTodo: (state, action) => {
-      state.todo = state.todo.filter((todo) => todo.id !== action.payload);
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
     },
   },
 });
 
-export const { addTodo, toggleTodo, deleteTodo } = todoSlice.actions;
-export default todoSlice.reducer;
+export const { addTodo, toggleTodo, deleteTodo } = todosSlice.actions;
+export default todosSlice.reducer;

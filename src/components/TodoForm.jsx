@@ -1,4 +1,4 @@
-import { addTodo } from "../redux/slices/todoSlice";
+import { addTodo } from "../redux/slices/todosSlice";
 import { useDispatch } from "react-redux";
 
 export default function TodoForm() {
