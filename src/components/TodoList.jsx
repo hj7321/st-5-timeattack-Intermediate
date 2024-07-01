@@ -2,9 +2,10 @@ import TodoItem from "./TodoItem";
 import { useSelector } from "react-redux";
 
 export default function TodoList({ isDone }) {
-  const todo = useSelector((state) => state.todo.todo);
+  const { todos } = useSelector((state) => state.todos);
+  console.log(todos);
 
-  const filteredTodos = todo.filter((todo) => todo.isDone === isDone);
+  const filteredTodos = todos.filter((todo) => todo.isDone === isDone);
 
   return (
     <section>
